@@ -1,12 +1,10 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
 const TrackingModel = require('../tracking.model');
-const { getSelectorValue } = require('./addTracking');
+const { getSelectorValue } = require('./getSelectorValue');
 const { notifyUser } = require('./notifyUser');
 
 exports.checkTracking = async function checkTracking(trackingId) {
  const tracking = await TrackingModel.findById(trackingId).lean();
- const { resourceUrl, cssSelector, currentValue, title } = tracking;
+ const { resourceUrl, cssSelector, currentValue } = tracking;
 
  const newCurrentValue = await getSelectorValue(resourceUrl, cssSelector);
 

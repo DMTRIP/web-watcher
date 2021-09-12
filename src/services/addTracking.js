@@ -1,14 +1,5 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
 const TrackingModel = require('../tracking.model');
-
-async function getSelectorValue(resourceUrl, cssSelector) {
-    const resourceHTML = (await axios.get(resourceUrl))?.data;
-
-    const $ = cheerio.load(resourceHTML);
-
-    return $(cssSelector)?.text();
-};
+const { getSelectorValue } = require('./getSelectorValue');
 
 /**
  * @param {{
@@ -32,5 +23,3 @@ exports.addTracking = async function addTracking(data) {
         currentValue: initialSelectorValue,
     })
 };
-
-exports.getSelectorValue = getSelectorValue;

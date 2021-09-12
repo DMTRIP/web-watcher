@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/app.js",
-    "start:bot": "nodemon src/telegram-bot.js"
+    "start:bot": "nodemon src/bot/telegram-bot.js"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.12",
     "telegraf": "^4.4.1"
+  },
+  "devDependencies": {
+    "jest": "^27.1.1"
   }
 }

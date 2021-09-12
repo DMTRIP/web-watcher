@@ -7,6 +7,8 @@ exports.checkSystemHealth = async function checkSystemHealth() {
     const twoDaysBefore = new Date();
     twoDaysBefore.setDate(twoDaysBefore.getDate() -2);
 
+    console.log('checkSystemHealth');
+
     const trackingRecord = await TrackingModel.findOne({
         $or: [
             { lastCheckedAt: { $exists: false } },

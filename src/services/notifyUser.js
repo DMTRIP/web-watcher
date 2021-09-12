@@ -1,10 +1,8 @@
 const { Telegram } = require('telegraf');
-const dotenv = require('dotenv');
+const config = require('../config');
 
-dotenv.config();
-
-const telegram = new Telegram(process.env.TELEGRAM_BOT_TOKEN);
-const chatId = process.env.TLEGRAM_CHAT_ID;
+const telegram = new Telegram(config.telegramBotToken);
+const chatId = config.telegramChatId;
 
 exports.notifyUser = async function notifyUser(tracking) {
     await telegram.sendMessage(chatId, formNotificationHtml(tracking), { parse_mode: 'html' });
